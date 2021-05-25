@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     UIManager UIManager;
     public GameObject VFX_Explosion;
     public GameObject Anim_Explosion;
+    public GameObject URP;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
             UIManager.KillCount = 0;
             UIManager.Lifes--;
+            Instantiate(URP).transform.position=transform.position;
         }
     }
     public void SetSpeed()

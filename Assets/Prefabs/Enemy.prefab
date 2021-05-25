@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,11 +107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8af9703a5b94614981ce58d0a2a0f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  Speed: 0
   VFX_Explosion: {fileID: 2427333308494754252, guid: d8e82d492dd6bc0438c0a19e380e1f5f,
     type: 3}
   Anim_Explosion: {fileID: 2407942627143905739, guid: 1ec31daecd943e447ab951147510f410,
     type: 3}
+  URP: {fileID: 4304673851401417998, guid: 33af3940196f2fc45bd8815ba916106d, type: 3}
 --- !u!54 &-687013990977533185
 Rigidbody:
   m_ObjectHideFlags: 0
