@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5571388384851058087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Editor Default Resources/FMOD/Audio/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637575413721326266
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 748
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -5571388384851058087}
+  - {fileID: 3610026039306937257}
+  EditorEvents:
+  - {fileID: 6197726536685856887}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 3610026039306937257}
+  StringsBanks:
+  - {fileID: -5571388384851058087}
+  stringsBankWriteTime: 637575413721326266
+  cacheVersion: 6
+--- !u!114 &3610026039306937257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Audio/Build/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Editor Default Resources/FMOD/Audio/Build/Desktop/Master.bank
+  Name: Audio/Build/Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 637575413720805627
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &6197726536685856887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3d timeline
+  m_EditorClassIdentifier: 
+  Path: event:/3d timeline
+  guid: f83369e3e843e248bad5891b6a77b529
+  Banks:
+  - {fileID: 3610026039306937257}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
