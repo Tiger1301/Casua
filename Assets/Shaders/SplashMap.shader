@@ -7,6 +7,7 @@ Shader "Unlit/SplashMap"
         _MainTex ("Splat Map", 2D) = "white" {}
         [NoScaleOffset] _FirText ("First Texture", 2D) = "white" {}
         [NoScaleOffset] _SecText ("Second Texture", 2D) = "white" {}
+        [NoScaleOffset] _ThiText ("Third Texture", 2D) = "white" {}
     }
     SubShader
     {
@@ -37,7 +38,7 @@ Shader "Unlit/SplashMap"
             };
 
             sampler2D _MainTex;
-            sampler2D _FirText, _SecText;
+            sampler2D _FirText, _SecText, _ThiText;
             float4 _MainTex_ST;
 
             //v2f vert (appdata v)
@@ -86,7 +87,7 @@ Shader "Unlit/SplashMap"
             {
                 float4 splat = tex2D(_MainTex, p_in.uvSplat);
 
-                return tex2D(_FirText, p_in.uv) * splat.r + tex2D(_SecText, p_in.uv) * (1 - splat.r);
+                return tex2D(_FirText, p_in.uv) * splat.r + tex2D(_SecText, p_in.uv) * (1 - splat.r) + tex2D(_ThiText,p_in.uv) * (2-splat.r);
             }
 
             ENDHLSL

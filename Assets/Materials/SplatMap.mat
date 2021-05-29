@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: SplatMap
   m_Shader: {fileID: 4800000, guid: 42e2d3aadab9b44418573c4f9a796caa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,11 +40,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FirText:
-        m_Texture: {fileID: 2800000, guid: 6bcc47dd9c1ae6046a3bab4115e63666, type: 3}
+        m_Texture: {fileID: 2800000, guid: a628dc8adabc74a4f9db648394a0c6da, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6f42821179eb16f419f9b58bf7aeec0a, type: 3}
+        m_Texture: {fileID: 2800000, guid: a2ef151ef492b5f43914344a485064a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -60,7 +60,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecText:
-        m_Texture: {fileID: 2800000, guid: b9c7fc03904e9e34aa7dffeaac984a82, type: 3}
+        m_Texture: {fileID: 2800000, guid: 24fbc333817959c4f9ad684101b73ace, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThiText:
+        m_Texture: {fileID: 2800000, guid: 03cfea05491db2e489bdb6fb2e4e8242, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThirTex:
