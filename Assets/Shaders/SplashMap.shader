@@ -5,6 +5,7 @@ Shader "Unlit/SplashMap"
     Properties
     {
         _MainTex ("Splat Map", 2D) = "white" {}
+        _DetailTex ("Detail Texture", 2D) = "grey"{}
         [NoScaleOffset] _FirText ("First Texture", 2D) = "white" {}
         [NoScaleOffset] _SecText ("Second Texture", 2D) = "white" {}
         [NoScaleOffset] _ThiText ("Third Texture", 2D) = "white" {}
@@ -37,9 +38,9 @@ Shader "Unlit/SplashMap"
                 float4 vertex : SV_POSITION;
             };
 
-            sampler2D _MainTex;
+            sampler2D _MainTex, _DetailTex;
             sampler2D _FirText, _SecText, _ThiText;
-            float4 _MainTex_ST;
+            float4 _MainTex_ST, _DetailTex_ST;
 
             //v2f vert (appdata v)
             //{

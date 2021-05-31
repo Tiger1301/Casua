@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Unlit/LightingShader"
+﻿Shader "Unlit/LightingWithBumptiness"
 {
     Properties
     {
@@ -9,6 +7,7 @@ Shader "Unlit/LightingShader"
         _Smoothness ("Smoothness", Range(0, 1)) = 0.5
         _DetailTex ("Detail Texture", 2D) = "grey"{}
         [Gamma] _Metallic ("Metallic", Range(0, 1)) = 0
+        [NoScaleOffset] _HeightMap ("Heights", 2D) = "gray" {}
     }
     SubShader
     {
@@ -51,6 +50,8 @@ Shader "Unlit/LightingShader"
             float4 _Tint;
             float _Smoothness;
             float _Metallic;
+            sampler2D _HeightMap;
+            float4 _HeightMap_TexelSize;
             
             struct VertexData 
             {
@@ -87,9 +88,26 @@ Shader "Unlit/LightingShader"
                 return light;
             }
 
+            void InitializeFragmentNormal(inout Interpolators i)
+            {
+                float2 du = float2(_HeightMap_TexelSize.x * 0.5, 0);
+	            float u1 = tex2D(_HeightMap, i.uv - du);
+	            float u2 = tex2D(_HeightMap, i.uv + du);
+	            //float3 tu = float3(1, u2 - u1, 0);
+
+                float2 dv = float2(0, _HeightMap_TexelSize.y * 0.5);
+	            float v1 = tex2D(_HeightMap, i.uv - dv);
+	            float v2 = tex2D(_HeightMap, i.uv + dv);
+	            //float3 tv = float3(0, v2 - v1, 1);
+
+                //i.normal = cross(tv, tu);
+                i.normal = float3(u1 - u2, 1, v1 - v2);
+                i.normal = normalize(i.normal);
+            }
+
             float4 MyFragmentProgram (Interpolators i) : SV_TARGET 
             {
-                i.normal = normalize(i.normal);
+                InitializeFragmentNormal(i);
                 float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
                 float3 albedo = tex2D(_MainTex, i.uv).rgb * _Tint.rgb;
                 float3 specularTint;
@@ -148,6 +166,8 @@ Shader "Unlit/LightingShader"
             float4 _Tint;
             float _Smoothness;
             float _Metallic;
+            sampler2D _HeightMap;
+            float4 _HeightMap_TexelSize;
             
             
             struct VertexData 
@@ -189,9 +209,26 @@ Shader "Unlit/LightingShader"
                 return light;
             }
 
+            void InitializeFragmentNormal(inout Interpolators i)
+            {
+                float2 du = float2(_HeightMap_TexelSize.x * 0.5, 0);
+	            float u1 = tex2D(_HeightMap, i.uv - du);
+	            float u2 = tex2D(_HeightMap, i.uv + du);
+	            //float3 tu = float3(1, u2 - u1, 0);
+
+                float2 dv = float2(0, _HeightMap_TexelSize.y * 0.5);
+	            float v1 = tex2D(_HeightMap, i.uv - dv);
+	            float v2 = tex2D(_HeightMap, i.uv + dv);
+	            //float3 tv = float3(0, v2 - v1, 1);
+
+                //i.normal = cross(tv, tu);
+                i.normal = float3(u1 - u2, 1, v1 - v2);
+                i.normal = normalize(i.normal);
+            }
+
             float4 MyFragmentProgram (Interpolators i) : SV_TARGET 
             {
-                i.normal = normalize(i.normal);
+                InitializeFragmentNormal(i);
                 float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
                 float3 albedo = tex2D(_MainTex, i.uv).rgb * _Tint.rgb;
                 float3 specularTint;
