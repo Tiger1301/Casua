@@ -1,11 +1,9 @@
-﻿Shader "Unlit/FirstShader"
+﻿Shader "Unlit/GeometryDuplication"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Tint ("Color", Color) = (1,1,1,1)
-        _DetailTex ("Detail Texture", 2D) = "grey"{}
-        [NoScaleOffset] _HeightMap ("Heights", 2D) = "gray" {}
+        _Vector ("Vector", Vector) = (1, 1, 1, 0)
     }
     SubShader
     {
@@ -25,6 +23,7 @@
             struct appdata
             {
                 float4 vertex : POSITION;
+                //float4 vertex2 : POSITION;
                 float2 uv : TEXCOORD0;
             };
 
@@ -33,17 +32,18 @@
                 float2 uv : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
+                //float4 vertex2 : SV_POSITION;
             };
 
-            float4 _Tint;
-            sampler2D _MainTex, _DetailTex;
-            float4 _MainTex_ST, _DetailTex_ST;
-            sampler2D _HeightMap;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            float4 _Vector;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                //o.vertex = UnityObjectToClipPos(v.vertex + _Vector);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
@@ -52,8 +52,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv)*_Tint;
-                col *= tex2D(_HeightMap, i.uv);
+                fixed4 col = tex2D(_MainTex, i.uv);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;

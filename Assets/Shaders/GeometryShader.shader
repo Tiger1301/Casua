@@ -4,7 +4,9 @@
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color("Color", Color) = (1,1,1,1)
+        _DetailTex ("Detail Texture", 2D) = "grey"{}
         _Factor("Factor", Range(0, 1)) = 0
+        [NoScaleOffset] _HeightMap ("Heights", 2D) = "gray" {}
     }
     SubShader
     {
@@ -44,11 +46,12 @@
                 float3 normal : NORMAL;
             };
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
+            sampler2D _MainTex, _DetailTex;
+            float4 _MainTex_ST, _DetailTex_ST;
             float4 _Color;
             float _Factor;
             //float4 TransormObjectToHClip
+            sampler2D _HeightMap;
 
             v2f vert (appdata IN)
             {
@@ -57,11 +60,11 @@
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
                 OUT.normal = IN.normal;
                 return OUT;
-               //v2f o;
-               //o.vertex = UnityObjectToClipPos(v.vertex);
-               //o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-               //UNITY_TRANSFER_FOG(o,o.vertex);
-               //return o;
+                //v2f o;
+                //o.vertex = UnityObjectToClipPos(v.vertex);
+                //o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                //UNITY_TRANSFER_FOG(o,o.vertex);
+                //return o;
             }
 
             float rand(float3 co)
