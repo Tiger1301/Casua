@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Shoot();
-			FindObjectOfType<AudioManager>().Play(ShotSound);
 		}
 	}
 
@@ -64,6 +63,7 @@ public class Player : MonoBehaviour
 	{
 		Vector3 BulletSpawn = new Vector3(1, 0, 0);
 		Instantiate(Bullet.gameObject, BulletSpawn+transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+		FindObjectOfType<AudioManager>().Play(ShotSound);
 	}
 
 	public void JoystickMovement()
