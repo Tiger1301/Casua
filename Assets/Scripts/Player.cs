@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 	public Joystick Joystick;
 	Rigidbody RB;
 
+	public string ShotSound;
+
 	private void Start()
 	{
 		PlayerPrefs.SetInt("Score", 0);
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Shoot();
+			FindObjectOfType<AudioManager>().Play(ShotSound);
 		}
 	}
 

@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     public GameObject Anim_Explosion;
     public GameObject URP;
 
+    public string CrumbleSound;
+    public string DamageSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,7 @@ public class Enemy : MonoBehaviour
             UIManager.KillCount++;
             Instantiate(VFX_Explosion).transform.position = transform.position;
             Instantiate(Anim_Explosion).transform.position = transform.position;
+            FindObjectOfType<AudioManager>().Play(CrumbleSound);
         }
         if (other.gameObject.CompareTag("Player"))
         {
@@ -47,6 +51,7 @@ public class Enemy : MonoBehaviour
             UIManager.KillCount = 0;
             UIManager.Lifes--;
             Instantiate(URP).transform.position=transform.position;
+            FindObjectOfType<AudioManager>().Play(DamageSound);
         }
     }
     public void SetSpeed()

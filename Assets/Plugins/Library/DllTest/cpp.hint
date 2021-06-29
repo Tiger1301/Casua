@@ -1,2 +1,0 @@
-#define DLLTEST_API __declspec(dllexport)
-#define DLLTEST_API __declspec(dllimport)
