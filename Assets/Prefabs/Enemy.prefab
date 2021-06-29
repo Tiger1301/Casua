@@ -113,6 +113,8 @@ MonoBehaviour:
   Anim_Explosion: {fileID: 2407942627143905739, guid: 1ec31daecd943e447ab951147510f410,
     type: 3}
   URP: {fileID: 4304673851401417998, guid: 33af3940196f2fc45bd8815ba916106d, type: 3}
+  CrumbleSound: Rock crumbling
+  DamageSound: Damage
 --- !u!54 &5189092617495945671
 Rigidbody:
   m_ObjectHideFlags: 0

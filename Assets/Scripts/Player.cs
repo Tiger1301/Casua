@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 	public Joystick Joystick;
 	Rigidbody RB;
 
+	public string ShotSound;
+
 	private void Start()
 	{
 		PlayerPrefs.SetInt("Score", 0);
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
 	{
 		Vector3 BulletSpawn = new Vector3(1, 0, 0);
 		Instantiate(Bullet.gameObject, BulletSpawn+transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+		FindObjectOfType<AudioManager>().Play(ShotSound);
 	}
 
 	public void JoystickMovement()
