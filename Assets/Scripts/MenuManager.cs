@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public Text Score;
+    public GameObject MainPanel;
+    public GameObject SelectionPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,15 @@ public class MenuManager : MonoBehaviour
     public void Close()
     {
         Application.Quit();
+    }
+    public void GoToSelection()
+    {
+        MainPanel.SetActive(false);
+        SelectionPanel.SetActive(true);
+    }
+    public void BackToMenu()
+    {
+        SelectionPanel.SetActive(false);
+        MainPanel.SetActive(true);
     }
 }

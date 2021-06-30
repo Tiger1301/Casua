@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("Score", 0);
 		RB = GetComponent<Rigidbody>();
+
+		highestPoint = GameObject.Find("Top limit");
+		lowestPoint = GameObject.Find("Bottom limit");
+		Joystick = FindObjectOfType<FixedJoystick>();
 	}
 
 	private void Update()

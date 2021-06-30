@@ -225,12 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f216f34ba349bf4fb5dcd4a403ba04d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
   highestPoint: {fileID: 0}
   lowestPoint: {fileID: 0}
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 1259865673663102, guid: 8b227e0429c621940acb9e2e8d18d12f, type: 3}
   Joystick: {fileID: 0}
-  ShotSound: 
+  ShotSound: Laser shot
 --- !u!1 &1835983567824288
 GameObject:
   m_ObjectHideFlags: 0
