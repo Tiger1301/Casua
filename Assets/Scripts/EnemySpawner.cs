@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject Enemy;
+    public GameObject[] Enemy;
     public float SpawnRate;
     public float SpawnTimer;
     UIManager UIManager;
@@ -30,8 +30,20 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Vector3 EnemySpawn = new Vector3(0, Random.Range(-4.5f, 4.5f), 0);
-        Instantiate(Enemy.gameObject, EnemySpawn + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+        Vector3 EnemySpawn = new Vector3(0, Random.Range(-3f, 3.5f), 0);
+        int RandEnemy = Random.Range(0, 2);
+        Vector3Int quaternion;
+
+        if(RandEnemy==0)
+        {
+            quaternion = new Vector3Int(0, 90, -90);
+        }
+        else
+        {
+            quaternion = new Vector3Int(0, 0, 0);
+        }
+
+        Instantiate(Enemy[RandEnemy].gameObject, EnemySpawn + transform.TransformPoint(0, 0, 0), Quaternion.Euler(quaternion.x, quaternion.y, quaternion.z));
     }
 
     public void SetTimer()

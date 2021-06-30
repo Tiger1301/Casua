@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
 	public void Shoot()
 	{
 		Vector3 BulletSpawn = new Vector3(1, 0, 0);
-		Instantiate(Bullet.gameObject, BulletSpawn+transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
+		Instantiate(Bullet.gameObject, BulletSpawn+transform.TransformPoint(0, 0, 0), Quaternion.Euler(0, 90, 0));
 		FindObjectOfType<AudioManager>().Play(ShotSound);
 	}
 

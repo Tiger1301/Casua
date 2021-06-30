@@ -21,6 +21,7 @@ public class GameOver : MonoBehaviour
             LastScore.text = UIManager.PointsToMaintain.ToString();
             Record.text = "Previous record: " + PersistentScript.HighScore.ToString();
         }
+        FindObjectOfType<AudioManager>().Play("GameOver");
     }
 
     // Update is called once per frame

@@ -13,12 +13,12 @@ public class SpawnPlayer : MonoBehaviour
 
     void SpawnShip()
     {
-        Vector3 PlayerPosition = new Vector3(0, 0, 0);
-        for (int i = 0; i < PersistentScript.Ship; i++)
+        Vector3 PlayerPosition = new Vector3(-7, 0, 0);
+        for (int i = 0; i < Spaceships.Length; i++)
         {
             if(i==PersistentScript.Ship)
             {
-                Instantiate(Spaceships[i].gameObject, PlayerPosition, gameObject.transform.rotation);
+                Instantiate(Spaceships[i].gameObject, PlayerPosition, Quaternion.Euler(0, 90, -90));
             }
         }
     }

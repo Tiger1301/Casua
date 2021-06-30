@@ -7,7 +7,7 @@ public class PersistentScript : MonoBehaviour
     public static int HighScore;
     public static int Ship;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         HighScore = PlayerPrefs.GetInt("HighScore");
         Ship = PlayerPrefs.GetInt("Ship");
