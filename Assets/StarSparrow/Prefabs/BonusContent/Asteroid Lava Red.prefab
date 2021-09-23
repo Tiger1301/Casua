@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
-  VFX_Explosion: {fileID: 2427333308494754252, guid: d8e82d492dd6bc0438c0a19e380e1f5f,
+  VFX_Explosion: {fileID: 2427333308494754252, guid: cc479182bed18d642af946d5e05d9e0d,
     type: 3}
   Anim_Explosion: {fileID: 2407942627143905739, guid: 1ec31daecd943e447ab951147510f410,
     type: 3}
