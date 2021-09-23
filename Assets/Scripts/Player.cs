@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
 	public GameObject highestPoint;
 	public GameObject lowestPoint;
-	public GameObject Bullet;
+	//public GameObject Bullet;
 	public Joystick Joystick;
 	Rigidbody RB;
 
@@ -66,7 +66,14 @@ public class Player : MonoBehaviour
 	public void Shoot()
 	{
 		Vector3 BulletSpawn = new Vector3(1, 0, 0);
-		Instantiate(Bullet.gameObject, BulletSpawn+transform.TransformPoint(0, 0, 0), Quaternion.Euler(0, 90, 0));
+		//Instantiate(Bullet.gameObject, BulletSpawn+transform.TransformPoint(0, 0, 0), Quaternion.Euler(0, 90, 0));
+		GameObject bullet = ObjectPool.SharedInstance.GetPooledObject();
+		if(bullet != null)
+        {
+			bullet.transform.position = BulletSpawn+transform.TransformPoint(0, 0, 0);
+			bullet.transform.rotation = Quaternion.Euler(0, 90, 0);
+			bullet.SetActive(true);
+		}
 		FindObjectOfType<AudioManager>().Play(ShotSound);
 	}
 

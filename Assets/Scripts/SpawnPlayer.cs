@@ -5,10 +5,12 @@ using UnityEngine;
 public class SpawnPlayer : MonoBehaviour
 {
     public GameObject[] Spaceships;
+    public Player player; 
     // Start is called before the first frame update
     void Start()
     {
         SpawnShip();
+        player = FindObjectOfType<Player>();
     }
 
     void SpawnShip()
@@ -21,5 +23,10 @@ public class SpawnPlayer : MonoBehaviour
                 Instantiate(Spaceships[i].gameObject, PlayerPosition, Quaternion.Euler(0, 90, -90));
             }
         }
+    }
+
+    public void ShootButton()
+    {
+        player.Shoot();
     }
 }

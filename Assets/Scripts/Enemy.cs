@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             Destroy(this.gameObject);
             
             int oldscore = PlayerPrefs.GetInt("Score", 0);

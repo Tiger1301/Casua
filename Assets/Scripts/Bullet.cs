@@ -8,11 +8,17 @@ public class Bullet : MonoBehaviour
 
 	private void Start()
 	{
-		Destroy(gameObject, 5);
+		StartCoroutine(Deactivate());
 	}
 
 	private void Update()
 	{
 		transform.position += Vector3.right * Time.deltaTime * speed;
+	}
+
+	IEnumerator Deactivate()
+    {
+		yield return new WaitForSeconds(5);
+		gameObject.SetActive(false);
 	}
 }
