@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
             print(PlayerPrefs.GetInt("Score", 0));
             UIManager.Points += 10;
             UIManager.KillCount++;
+            UIManager.AddLifeCount++;
             Instantiate(VFX_Explosion).transform.position = transform.position;
             Instantiate(Anim_Explosion).transform.position = transform.position;
             FindObjectOfType<AudioManager>().Play(CrumbleSound);
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
             //SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             Destroy(this.gameObject);
             UIManager.KillCount = 0;
+            UIManager.AddLifeCount = 0;
             UIManager.Lifes--;
             Instantiate(URP).transform.position=transform.position;
             FindObjectOfType<AudioManager>().Play(DamageSound);

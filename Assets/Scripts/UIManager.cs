@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public int Points;
     public static int PointsToMaintain;
     public int KillCount;
+    public int AddLifeCount;
     public int Intensity;
     public int Lifes = 3;
     public Text RemainingLifes;
@@ -30,6 +31,11 @@ public class UIManager : MonoBehaviour
         if(Lifes==0)
         {
             SceneManager.LoadScene(2);
+        }
+        if(AddLifeCount==20)
+        {
+            Lifes++;
+            AddLifeCount = 0;
         }
     }
 
